@@ -1,0 +1,146 @@
+﻿<Window x:Class="itsEVEST.DataInsertView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:itsEVEST" Loaded="DataInsert_Loaded"
+        xmlns:UserControls="clr-namespace:itsEVEST.View.UserControls"
+        mc:Ignorable="d" Background="LightGray" WindowStartupLocation="CenterScreen"
+        Title="DataInsertView" Height="400" Width="450">
+    <Window.Resources>
+        <Style TargetType="UserControls:dataInputField">
+            <Setter Property="Margin" Value="5,5,5,5" />
+
+        </Style>
+
+    </Window.Resources>
+    <TabControl>
+            <TabItem Header="Match">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <!-- Red -->
+                                <!-- Player Name -->
+                                <Grid Grid.Row="0">
+                                    <UserControls:dataInputField x:Name="inputRedName" />
+
+                                </Grid>
+
+                                <!-- Team Name -->
+                                <Grid Grid.Row="1" >
+                                    <UserControls:dataInputField x:Name="inputRedTeam"/>
+
+                                </Grid>
+                                <!-- Red Label -->
+                                <Grid Grid.Row="2">
+                                    <Border Background="Red" Margin="10" BorderThickness="2" BorderBrush="DarkGray">
+                                        <TextBlock Text="Red" Foreground="White" HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center" Padding="10"/>
+                                    </Border>
+                                    
+
+                                </Grid>
+
+                                <!-- Blue -->
+                                <!-- Player Name -->
+                                <Grid Grid.Row="3" >
+                                    <UserControls:dataInputField x:Name="inputBlueName"/>
+
+                                </Grid>
+
+                                <!-- Team Name -->
+                                <Grid Grid.Row="4" >
+                                    <UserControls:dataInputField x:Name="inputBlueTeam"/>
+
+                                </Grid>
+
+                                <!-- Blue Label -->
+                                <Grid Grid.Row="5">
+                                    <Border Background="Blue" Margin="10" BorderThickness="2" BorderBrush="DarkGray">
+                                        <TextBlock Text="Blue" Foreground="White" HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center" Padding="10"/>
+                                    </Border>
+
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <!-- Kelas Pertarungan -->
+                            <Grid Grid.Row="0" >
+                                <UserControls:dataInputField x:Name="inputClass"/>
+
+                            </Grid>
+
+                            <!-- Jenis Kelamin -->
+                            <Grid Grid.Row="1" >
+                                <UserControls:dataInputField x:Name="inputGender"/>
+
+                            </Grid>
+
+                            <!-- Kelas Berat -->
+                            <Grid Grid.Row="2" >
+                                <UserControls:dataInputField x:Name="inputWeight"/>
+
+                            </Grid>
+
+                            <!-- Fase -->
+                            <Grid Grid.Row="3" >
+                                <UserControls:dataInputField x:Name="inputPhase"/>
+
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <!-- Apply Button -->
+                    <Button x:Name="btApply" Height="40" Width="160" HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" Click="btApply_Click" Margin="0,5" Content="Terapkan" 
+                            />
+
+                </Grid>
+            </Grid>
+                
+                
+            </TabItem>
+            
+            <TabItem Header="Rules">
+                
+            </TabItem>
+    </TabControl>
+        
+    
+</Window>
