@@ -3,20 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:itsEVEST" Loaded="DataInsert_Loaded"
-        xmlns:UserControls="clr-namespace:itsEVEST.View.UserControls"
+        xmlns:local="clr-namespace:itsEVEST"
+        xmlns:UserControls="clr-namespace:itsEVEST.View.UserControls" xmlns:viewmodels="clr-namespace:itsEVEST.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:DataInsertViewModel}"
         mc:Ignorable="d" Background="LightGray" WindowStartupLocation="CenterScreen"
-        Title="DataInsertView" Height="400" Width="450">
+        Title="Setup" Height="400" Width="450">
     <Window.Resources>
-        <Style TargetType="UserControls:dataInputField">
-            <Setter Property="Margin" Value="5,5,5,5" />
 
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
         </Style>
 
     </Window.Resources>
     <TabControl>
             <TabItem Header="Match">
-            <Grid>
+            <Grid x:Name="MatchGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80*"/>
                     <RowDefinition Height="20*"/>
@@ -42,14 +56,41 @@
 
                                 <!-- Red -->
                                 <!-- Player Name -->
-                                <Grid Grid.Row="0">
-                                    <UserControls:dataInputField x:Name="inputRedName" />
+                                <Grid Grid.Row="0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*"/>
+                                        <ColumnDefinition Width="80*" />
+                                    </Grid.ColumnDefinitions>
 
+                                    <Grid Grid.Column="0" >
+                                        <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                            <TextBlock Text="Nama" />
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="1" >
+                                        
+                                        <TextBox x:Name="inputRedName" Text=""/>
+                                    </Grid>
                                 </Grid>
 
                                 <!-- Team Name -->
                                 <Grid Grid.Row="1" >
-                                    <UserControls:dataInputField x:Name="inputRedTeam"/>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*"/>
+                                        <ColumnDefinition Width="80*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0" >
+                                        <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                            <TextBlock Text="Tim" />
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="1" >
+                                        <TextBox x:Name="inputRedTeam" Text=""/>
+                                    </Grid>
+                                    
 
                                 </Grid>
                                 <!-- Red Label -->
@@ -58,21 +99,45 @@
                                         <TextBlock Text="Red" Foreground="White" HorizontalAlignment="Center" 
                                                    VerticalAlignment="Center" Padding="10"/>
                                     </Border>
-                                    
-
                                 </Grid>
 
                                 <!-- Blue -->
                                 <!-- Player Name -->
                                 <Grid Grid.Row="3" >
-                                    <UserControls:dataInputField x:Name="inputBlueName"/>
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*"/>
+                                        <ColumnDefinition Width="80*" />
+                                    </Grid.ColumnDefinitions>
 
+                                    <Grid Grid.Column="0" >
+                                        <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                            <TextBlock Text="Nama" />
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="1" >
+                                        <TextBox x:Name="inputBlueName" Text=""/>
+                                    </Grid>
                                 </Grid>
 
                                 <!-- Team Name -->
                                 <Grid Grid.Row="4" >
-                                    <UserControls:dataInputField x:Name="inputBlueTeam"/>
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*"/>
+                                        <ColumnDefinition Width="80*" />
+                                    </Grid.ColumnDefinitions>
 
+                                    <Grid Grid.Column="0" >
+                                        <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                            <TextBlock Text="Tim" />
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="1" >
+                                        <TextBox x:Name="inputBlueTeam" Text="" />
+                                    </Grid>
                                 </Grid>
 
                                 <!-- Blue Label -->
@@ -99,25 +164,79 @@
 
                             <!-- Kelas Pertarungan -->
                             <Grid Grid.Row="0" >
-                                <UserControls:dataInputField x:Name="inputClass"/>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="80*" />
+                                </Grid.ColumnDefinitions>
 
+                                <Grid Grid.Column="0" >
+                                    <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                        <TextBlock Text="Kelas" />
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="1" >
+                                    <TextBox x:Name="inputClass" Text=""/>
+                                </Grid>
                             </Grid>
 
                             <!-- Jenis Kelamin -->
                             <Grid Grid.Row="1" >
-                                <UserControls:dataInputField x:Name="inputGender"/>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="80*" />
+                                </Grid.ColumnDefinitions>
 
+                                <Grid Grid.Column="0" >
+                                    <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                        <TextBlock Text="Gender" />
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="1" >
+                                    <TextBox x:Name="inputGender" Text="" />
+                                </Grid>
                             </Grid>
 
                             <!-- Kelas Berat -->
                             <Grid Grid.Row="2" >
-                                <UserControls:dataInputField x:Name="inputWeight"/>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="80*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" >
+                                    <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                        <TextBlock Text="Berat" />
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="1" >
+                                    <TextBox x:Name="inputWeight" Text="" />
+                                </Grid>
 
                             </Grid>
 
                             <!-- Fase -->
                             <Grid Grid.Row="3" >
-                                <UserControls:dataInputField x:Name="inputPhase"/>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="80*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" >
+                                    <Border BorderThickness="2" BorderBrush="DarkGray" Margin="5,5,0,5">
+                                        <TextBlock Text="Fase" />
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="1" >
+                                    <TextBox x:Name="inputPhase" Text="" />
+                                </Grid>
 
                             </Grid>
 
@@ -129,6 +248,7 @@
                     <!-- Apply Button -->
                     <Button x:Name="btApply" Height="40" Width="160" HorizontalAlignment="Center" 
                             VerticalAlignment="Center" Click="btApply_Click" Margin="0,5" Content="Terapkan" 
+                            
                             />
 
                 </Grid>
@@ -137,9 +257,7 @@
                 
             </TabItem>
             
-            <TabItem Header="Rules">
-                
-            </TabItem>
+            
     </TabControl>
         
     

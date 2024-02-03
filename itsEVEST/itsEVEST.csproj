@@ -2,13 +2,22 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="View\Windows\" />
+    <PackageReference Include="FirebaseAdmin" Version="2.4.0" />
+    <PackageReference Include="FireSharp" Version="2.0.4" />
+    <PackageReference Include="FireSharp.Serialization.JsonNet" Version="1.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="assets\logo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

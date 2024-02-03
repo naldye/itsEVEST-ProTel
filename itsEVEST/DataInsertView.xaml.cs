@@ -1,68 +1,74 @@
 ﻿using itsEVEST.View.UserControls;
+using itsEVEST.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace itsEVEST
 {
 
-    public partial class DataInsertView : Window
+    public partial class DataInsertView : Window 
     {
-        public bool AppliedPressed { get; set; }
-        public string RedName { get; set; }
-        public string RedTeam { get; set; }
-
-        public string BLueName { get; set; }
-        public string BLueTeam { get; set; }
-
-        public string Class { get; set; }
-        public string Gender { get; set; }
-        public string Weight { get; set; }
-        public string Phase { get; set; }
-
-
-        public DataInsertView(Window parentWindow)
+        public static DataInsertView Instance;
+        public TextBox TBoxRedName;
+        public DataInsertView(Window parentWindow) 
         {
             Owner = parentWindow;
             InitializeComponent();
-        }
+            Instance = this;
+            TBoxRedName = inputRedName;
 
-        private void DataInsert_Loaded(object sender, RoutedEventArgs e)
-        {
-            labeling();
+            DataInsertViewModel vm = new DataInsertViewModel();
+            DataContext = vm;
+
+            inputRedName.Text = MainWindow.Instance.tbRedName.Text;
+            inputRedTeam.Text = MainWindow.Instance.tbRedTeam.Text;
+            inputBlueName.Text = MainWindow.Instance.tbBlueName.Text;
+            inputBlueTeam.Text = MainWindow.Instance.tbBlueTeam.Text;
+
+            inputClass.Text = MainWindow.Instance.matchClass;
+            inputGender.Text = MainWindow.Instance.matchGender;
+            inputWeight.Text = MainWindow.Instance.matchWeight;
+            inputPhase.Text = MainWindow.Instance.matchPhase;
+
         }
 
 
         private void btApply_Click(object sender, RoutedEventArgs e)
         {
-            AppliedPressed = true;
-            RedName = inputRedName.tboxDataField.Text;
-            RedTeam = inputRedTeam.tboxDataField.Text;
+            MainWindow.Instance.tbRedName.Text = inputRedName.Text;
+            MainWindow.Instance.tbRedTeam.Text = inputRedTeam.Text;
+            MainWindow.Instance.tbBlueName.Text = inputBlueName.Text;
+            MainWindow.Instance.tbBlueTeam.Text = inputBlueTeam.Text;
 
-            BLueName = inputBlueName.tboxDataField.Text;
-            BLueTeam = inputBlueTeam.tboxDataField.Text;
+            MainWindow.Instance.MatchInfo.Text = inputPhase.Text + " " + inputClass.Text + " " + inputWeight.Text + " " + inputGender.Text;
 
-            Class = inputClass.tboxDataField.Text;
-            Gender = inputGender.tboxDataField.Text;
-            Weight = inputWeight.tboxDataField.Text;
-            Phase = inputPhase.tboxDataField.Text;
+            MainWindow.Instance.matchClass = inputClass.Text;
+            MainWindow.Instance.matchGender = inputGender.Text;
+            MainWindow.Instance.matchWeight = inputWeight.Text;
+            MainWindow.Instance.matchPhase = inputPhase.Text;
+            updateAllSources();
             Close();
         }
 
-        private void labeling()
+        private void updateSourceForTextBox(TextBox textBox)
         {
-            inputRedName.tbFieldName.Text = "Nama";
-            inputRedTeam.tbFieldName.Text = "Tim";
-
-            inputBlueName.tbFieldName.Text = "Nama";
-            inputBlueTeam.tbFieldName.Text = "Tim";
-
-            inputClass.tbFieldName.Text = "Kelas";
-            inputGender.tbFieldName.Text = "Gender";
-            inputWeight.tbFieldName.Text = "Berat";
-            inputPhase.tbFieldName.Text = "Fase";
-
+            BindingExpression bindingExpression = textBox.GetBindingExpression(TextBox.TextProperty);
+            bindingExpression?.UpdateSource();
         }
 
-        
+        private void updateAllSources()
+        {
+            updateSourceForTextBox(inputRedName);
+            updateSourceForTextBox(inputRedTeam);
+            updateSourceForTextBox(inputBlueName);
+            updateSourceForTextBox(inputBlueTeam);
+
+            updateSourceForTextBox(inputClass);
+            updateSourceForTextBox(inputGender);
+            updateSourceForTextBox(inputWeight);
+            updateSourceForTextBox(inputPhase);
+        }
+
     }
 }
