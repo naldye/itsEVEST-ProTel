@@ -7,12 +7,54 @@
         mc:Ignorable="d"
         Title="MainMenuWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+
+            <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+
+        </Grid>
+        
+        <Grid Grid.Row="1" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                
+                <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\train-mode-ss.jpg" 
+                       Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Image.Effect>
+                        <BlurEffect Radius="20" />
+                    </Image.Effect>
+                </Image>
+
+                <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\comp-mode-ss.jpg" 
+                       Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Image.Effect>
+                        <BlurEffect Radius="20" />
+                    </Image.Effect>
+                </Image>
+
+                <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+
+            </Grid>
+
+        </Grid>
 
         
-        
+
     </Grid>
 </Window>
