@@ -23,5 +23,19 @@ namespace itsEVEST.View.Windows
         {
             InitializeComponent();
         }
+
+        private void BtnTrain_Click(object sender, RoutedEventArgs e)
+        {
+            TrainingWindow trainingWindow = new TrainingWindow();
+            Close();
+            trainingWindow.ShowDialog();
+        }
+
+        private void BtnComp_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Close();
+            mainWindow.ShowDialog();
+        }
     }
 }

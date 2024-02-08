@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:itsEVEST" Loaded="MainWindow_Loaded"
         xmlns:UserControls="clr-namespace:itsEVEST.View.UserControls" xmlns:viewmodels="clr-namespace:itsEVEST.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:DataInsertViewModel}"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
         Title="E-Vest" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -215,9 +216,19 @@
 
                 <Grid>
 
+                    <StackPanel Orientation="Horizontal">
+                        
+                    <Button Content="Back" Name="btnBack"
+                            Width="70" Margin="5" Background="DimGray"
+                            Click="btnBack_Click"/>
+                        
                     <Button Content="Reset" Name="btnReset"
                             Width="70" Margin="5" Background="DimGray"
                             Click="btnReset_Click" HorizontalAlignment="Left"/>
+
+                        
+                    </StackPanel>
+                    
 
                 </Grid>
                 

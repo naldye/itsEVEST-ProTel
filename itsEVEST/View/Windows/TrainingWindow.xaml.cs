@@ -23,5 +23,17 @@ namespace itsEVEST.View.Windows
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuWindow mainMenuWindow = new MainMenuWindow();
+            Close();
+            mainMenuWindow.ShowDialog();
+        }
+
+        private void btnPairing_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

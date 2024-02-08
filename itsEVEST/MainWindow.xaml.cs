@@ -3,6 +3,7 @@ using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using itsEVEST.Model;
+using itsEVEST.View.Windows;
 using itsEVEST.ViewModels;
 using System;
 using System.Windows;
@@ -280,6 +281,13 @@ namespace itsEVEST
             tbBlueScore.Text = "0";
             _time = TimeSpan.FromSeconds(timeInSeconds);
             controlTimer();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuWindow mainMenuWindow = new MainMenuWindow();
+            Close();
+            mainMenuWindow.ShowDialog();
         }
     }
 }

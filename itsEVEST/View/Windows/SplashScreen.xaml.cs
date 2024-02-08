@@ -43,9 +43,9 @@ namespace itsEVEST.View.Windows
 
             if (progressValue == 50)
             {
-                MainWindow mainWindow = new MainWindow();
+                MainMenuWindow mainMenuWindow = new MainMenuWindow();
                 Close();
-                mainWindow.ShowDialog();
+                mainMenuWindow.ShowDialog();
             }
         }
 

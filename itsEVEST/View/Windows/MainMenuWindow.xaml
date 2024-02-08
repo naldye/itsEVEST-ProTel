@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:itsEVEST.View.Windows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="MainMenuWindow" Height="450" Width="800">
     <Grid>
@@ -13,12 +15,21 @@
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0" Background="Black">
 
-            <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+            <TextBlock Text="ITS E-VEST DESKTOP" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="48" FontWeight="SemiBold" Foreground="White"
+                       />
+
+            <materialDesign:Card UniformCornerRadius="25" Margin="0,0,725,0">
+
+                <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\logo.jpg"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5"/>
+
+            </materialDesign:Card>
 
         </Grid>
-        
+
         <Grid Grid.Row="1" >
 
             <Grid.ColumnDefinitions>
@@ -27,34 +38,89 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
+
+                <Button Click="BtnTrain_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+
+                            <Border x:Name="trainBorder" BorderBrush="DarkRed" BorderThickness="4">
+                                <Grid>
+                                
+                                    <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\train-mode-ss.jpg" 
+                                           Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                           <Image.Effect>
+                                               <BlurEffect Radius="20" />
+                                           </Image.Effect>
+                                    </Image>
+
+                                    <TextBlock Text="MODE LATIHAN" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                               FontSize="48" FontWeight="SemiBold" Foreground="White" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                               Margin="30,35,30,0"/>
+
+                                    <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+                            
+                                </Grid>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+
+                                <Trigger Property="IsMouseOver" Value="True">
+
+                                    <Setter TargetName="trainBorder" Property="BorderBrush" Value="Crimson"/>
+                                    <Setter TargetName="trainBorder" Property="Background" Value="MistyRose"/>
+
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 
-                <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\train-mode-ss.jpg" 
-                       Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Image.Effect>
-                        <BlurEffect Radius="20" />
-                    </Image.Effect>
-                </Image>
-
-                <Rectangle Fill="Black" Panel.ZIndex="-1"/>
-
             </Grid>
 
             <Grid Grid.Column="1">
 
-                <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\comp-mode-ss.jpg" 
-                       Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Image.Effect>
-                        <BlurEffect Radius="20" />
-                    </Image.Effect>
-                </Image>
+                <Button Click="BtnComp_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
 
-                <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+                            <Border x:Name="compBorder" BorderBrush="DarkBlue" BorderThickness="4" >
+                                <Grid>
+                                    <Image Source="C:\Productivity\Semester 7\ProTel\E-Vest Desktop\itsEVEST\itsEVEST\assets\comp-mode-ss.jpg" 
+                                           Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <Image.Effect>
+                                            <BlurEffect Radius="20" />
+                                        </Image.Effect>
+                                    </Image>
 
+                                    <TextBlock Text="MODE KOMPETISI" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                               FontSize="48" FontWeight="SemiBold" Foreground="White" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                               Margin="10,35,10,0"/>
+
+                                    <Rectangle Fill="Black" Panel.ZIndex="-1"/>
+
+                                </Grid>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+
+                                <Trigger Property="IsMouseOver" Value="True">
+
+                                    <Setter TargetName="compBorder" Property="BorderBrush" Value="RoyalBlue"/>
+                                    <Setter TargetName="compBorder" Property="Background" Value="AliceBlue"/>
+
+                                </Trigger>
+                                
+                            </ControlTemplate.Triggers>
+                            
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
             </Grid>
 
         </Grid>
-
         
-
     </Grid>
 </Window>
